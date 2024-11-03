@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form</title>
+  </head>
+  <body>
+    <form action="#" name="form">
+      <div>
+        Id:
+        <input type="text" name="i" />
+      </div>
+      <br />
+      <div>
+        Name:
+        <input type="text" name="n" />
+      </div>
+      <br />
+      <div>
+        Education:
+        <input type="checkbox" value="ssc" name="ss" />SSC
+        <input type="checkbox" value="hsc" name="ss" />HSC
+      </div>
+      <br />
+      <div>
+        Gender:
+        <input type="radio" name="x" value="Male" />Male
+        <input type="radio" name="x" value="Female" />Female
+      </div>
+      <br />
+      <div>
+        Course:
+        <select name="se" id="">
+          <option value="EEE">EEE</option>
+          <option value="ME">ME</option>
+          <option value="CSE">CSE</option>
+        </select>
+      </div>
+      <br />
+      <div>
+        <input type="submit" value="submit" onclick="my_f()" />
+        <input type="reset" value="reset" />
+      </div>
+    </form>
+    <script>
+      function my_f() {
+        var id = document.form.i.value;
+        var name = document.form.n.value;
+        doc = open("", "", "width=600px,height=600px");
+        var education = "";
+
+        for (i = 0; i < document.form.ss.length; i++) {
+          if (document.form.ss[i].checked) {
+            education += document.form.ss[i].value + " ";
+          }
+        }
+
+        var gender = "";
+
+        for (j = 0; j < document.form.x.length; j++) {
+          if (document.form.x[j].checked) {
+            gender = document.form.x[j].value;
+          }
+        }
+        var option = "";
+        for (i = 0; i < document.form.se.length; i++) {
+          if (document.form.se[i].selected) {
+            option += document.form.se[i].value + "";
+          }
+        }
+        with (doc.document) {
+          write("Name: " + name);
+          write("<br>");
+          write("Id: " + id);
+          write("<br>");
+          write("Education: " + education);
+          write("<br>");
+          write("Gender: " + gender);
+          write("<br>");
+          write("Course: " + option);
+        }
+      }
+    </script>
+  </body>
+</html>
