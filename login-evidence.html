@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      section {
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <div class="container">
+        <form action="" name="login">
+          <div>
+            Name:
+            <input type="text" name="name" />
+          </div>
+          <br />
+          <div>
+            Email:
+            <input type="text" name="mail" />
+          </div>
+          <br />
+          <div>
+            Course:
+            <select name="course" id="">
+              <option value="MBA">MBA</option>
+              <option value="MBA">BBA</option>
+              <option value="MBA">BSC</option>
+            </select>
+          </div>
+          <br />
+          <div>
+            SEX:
+            <input type="radio" name="x" value="Male" />Male
+            <input type="radio" name="x" value="Female" />Female
+          </div>
+          <br />
+          <div>
+            <input type="submit" value="submit" onclick="my_f()" />
+          </div>
+        </form>
+      </div>
+    </section>
+    <script>
+      function my_f() {
+        var name = document.login.name.value;
+        var mail = document.login.mail.value;
+        var course = document.login.course.value;
+        var sex = "";
+        for (i = 0; i < document.login.x.length; i++) {
+          if (document.login.x[i].checked) {
+            sex = document.login.x[i].value;
+          }
+        }
+
+        var info = open("", "", "height=300px, weight=400px");
+        with (info.document) {
+          write('<div style="border:2px solid black;padding:20px">');
+          write("Name: " + name + "<br>");
+          write("Email: " + mail + "<br>");
+          write("Course: " + course + "<br>");
+          write("Sex: " + sex + " <br> ");
+          write(' <button onclick="self.close()">Close</button> ');
+        }
+      }
+    </script>
+  </body>
+</html>
