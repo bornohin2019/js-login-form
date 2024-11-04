@@ -26,7 +26,7 @@
           <br />
           <div>
             Email:
-            <input type="text" name="mail" />
+            <input type="text" id="mail" name="mail" onblur="checkEmail()" />
           </div>
           <br />
           <div>
@@ -51,6 +51,18 @@
       </div>
     </section>
     <script>
+      function checkEmail() {
+        var email = document.getElementById("mail");
+        var emailNaN = /^[^ ]+@[^ ]+\.[a-z]{2,4}$/;
+        if (!emailNaN.test(email.value)) {
+          alert("please inter valid email");
+          document.getElementById("mail");
+          return false;
+        } else {
+          document.getElementById("mail");
+        }
+        return true;
+      }
       function my_f() {
         var name = document.login.name.value;
         var mail = document.login.mail.value;
@@ -70,6 +82,7 @@
           write("Course: " + course + "<br>");
           write("Sex: " + sex + " <br> ");
           write(' <button onclick="self.close()">Close</button> ');
+          write(' <button onclick="self.print()">Print</button> ');
         }
       }
     </script>
